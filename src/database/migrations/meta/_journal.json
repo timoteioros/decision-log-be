@@ -1,13 +1,13 @@
 {
-  "version": "7",
-  "dialect": "postgresql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "7",
-      "when": 1767750296685,
-      "tag": "0000_decisions_users_workspaces",
-      "breakpoints": true
-    }
-  ]
+	"version": "7",
+	"dialect": "postgresql",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "7",
+			"when": 1767750296685,
+			"tag": "0000_decisions_users_workspaces",
+			"breakpoints": true
+		}
+	]
 }
