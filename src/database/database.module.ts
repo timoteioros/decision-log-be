@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import * as schema from './schema/index';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Pool } from 'pg';
+import { ConfigService } from '@nestjs/config';
 import { drizzle, type NodePgDatabase } from 'drizzle-orm/node-postgres';
+import { Pool } from 'pg';
+import * as schema from './schema/index';
 
 export const DATABASE = Symbol('DATABASE');
 

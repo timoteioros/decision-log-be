@@ -1,5 +1,6 @@
 import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 import { decisionStatusEnum } from './enums';
+import { users } from './users';
 import { workspaces } from './workspaces';
 
 export const decisions = pgTable('decisions', {
@@ -13,10 +14,15 @@ export const decisions = pgTable('decisions', {
 	chosenOption: text('chosen_option'),
 	reasons: text('reasons').array(),
 	consequences: text('consequences').array(),
-	// createdBy: uuid('created_by').
+	createdBy: uuid('created_by')
+		.references(() => users.id)
+		.notNull(),
 	createdAt: timestamp('created_at').defaultNow().notNull(),
 	updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
+
+export type DecisionDto = typeof decisions.$inferSelect;
+export type CreateDecisionDto = typeof decisions.$inferInsert;
 
 // -- Fast workspace lookups
 // INDEX decisions_workspace_id_idx (workspace_id)
